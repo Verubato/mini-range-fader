@@ -8,6 +8,7 @@ local db
 ---@class Db
 local dbDefaults = {
 	OutOfRangeAlpha = 0.55,
+	BlackBackground = true,
 }
 
 local M = {
@@ -39,7 +40,7 @@ function M:Init()
 	subtitle:SetText("Customise the raid frame transparency for units out of range.")
 
 	mini:RegisterSlashCommand(category, panel, {
-		"/minirangefade",
+		"/minirangefader",
 		"/minirf",
 		"/mrf",
 	})
@@ -60,4 +61,19 @@ function M:Init()
 	})
 
 	slider.Slider:SetPoint("TOPLEFT", subtitle, "BOTTOMLEFT", 0, -verticalSpacing * 3)
+
+	local checkbox = mini:Checkbox({
+		Parent = panel,
+		LabelText = "Black Background",
+		Tooltip = "Show a black background behind each raid frame.",
+		GetValue = function()
+			return db.BlackBackground
+		end,
+		SetValue = function(value)
+			db.BlackBackground = value
+			addon:Refresh()
+		end,
+	})
+
+	checkbox:SetPoint("TOPLEFT", slider.Slider, "BOTTOMLEFT", 0, -verticalSpacing)
 end

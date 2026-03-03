@@ -33,6 +33,15 @@ local function BlizzardFrames()
 end
 
 local function UpdateAlpha(frame)
+	if frame.background then
+		if db.BlackBackground then
+			frame.background:SetIgnoreParentAlpha(true)
+			frame.background:SetAlpha(1)
+		else
+			frame.background:SetIgnoreParentAlpha(false)
+		end
+	end
+
 	if frame.outOfRange == nil then
 		return
 	end
@@ -41,6 +50,11 @@ local function UpdateAlpha(frame)
 end
 
 local function OnCufSetAlpha(frame)
+	-- ignore nameplates
+	if string.find(frame.unit, "nameplate") ~= nil then
+		return
+	end
+
 	UpdateAlpha(frame)
 end
 
