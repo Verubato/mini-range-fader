@@ -1,8 +1,8 @@
-## Interface: 120001, 120000
+## Interface: 120005
 ## Title: MiniRangeFader
 ## Notes: Customise the raid frame transparency for units out of range.
 ## Author: Verz
-## Version: 1.1.0
+## Version: 1.2.0
 ## SavedVariables: MiniRangeFaderDB
 ## IconTexture: Interface\AddOns\MiniRangeFader\Icon.blp
 ## X-Curse-Project-ID: 1447128
