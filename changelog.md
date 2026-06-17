@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.1
+
+12.0.7 TOC bump.
+
 ## 1.2.0
 
 12.0.5 TOC bump.
