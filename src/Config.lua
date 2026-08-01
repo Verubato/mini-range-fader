@@ -30,14 +30,12 @@ function M:Init()
 	end
 
 	local verticalSpacing = mini.VerticalSpacing
-	local version = C_AddOns.GetAddOnMetadata(addonName, "Version")
-	local title = panel:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
-	title:SetPoint("TOPLEFT", 0, -verticalSpacing)
-	title:SetText(string.format("%s - %s", addonName, version))
-
-	local subtitle = panel:CreateFontString(nil, "ARTWORK", "GameFontWhite")
-	subtitle:SetPoint("TOPLEFT", title, "BOTTOMLEFT", 0, -6)
-	subtitle:SetText("Customise the raid frame transparency for units out of range.")
+	local header = mini:PanelHeader({
+		Parent = panel,
+		Description = "Customise the raid frame transparency for units out of range.",
+		Y = -verticalSpacing,
+		Gap = 6,
+	})
 
 	mini:RegisterSlashCommand(category, panel, {
 		"/minirangefader",
@@ -60,7 +58,7 @@ function M:Init()
 		end,
 	})
 
-	slider.Slider:SetPoint("TOPLEFT", subtitle, "BOTTOMLEFT", 0, -verticalSpacing * 3)
+	slider.Slider:SetPoint("TOPLEFT", header.Anchor, "BOTTOMLEFT", 0, -verticalSpacing * 3)
 
 	local checkbox = mini:Checkbox({
 		Parent = panel,
