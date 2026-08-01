@@ -33,7 +33,6 @@ function M:Init()
 	local header = mini:PanelHeader({
 		Parent = panel,
 		Description = "Customise the raid frame transparency for units out of range.",
-		Y = -verticalSpacing,
 		Gap = 6,
 	})
 
