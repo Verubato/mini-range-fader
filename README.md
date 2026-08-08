@@ -8,9 +8,9 @@ Since Midnight the out of range alpha transparency has changed from 0.55 to 0.3 
 
 ## Screenshots
 
-![MiniRangeFader screenshot](https://media.forgecdn.net/attachments/1499/402/screenshot-comparison-png.png)
+![MiniRangeFader screenshot](https://raw.githubusercontent.com/Verubato/mini-range-fader/main/assets/ScreenshotComparison.png)
 
-![MiniRangeFader screenshot](https://media.forgecdn.net/attachments/1499/365/screenshot-settings-png.png)
+![MiniRangeFader screenshot](https://raw.githubusercontent.com/Verubato/mini-range-fader/main/assets/ScreenshotSettings.png)
 
 ## Download
 
