@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.2
+
+Updated the addon icon to the new shared Mini style.
+
 ## 1.3.1
 
 Config framework update.
