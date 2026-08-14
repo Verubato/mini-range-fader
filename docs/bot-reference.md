@@ -1,6 +1,6 @@
 # MiniRangeFader - bot reference
 
-Version 1.3.2. Interface versions: 120100, 120007 (retail Midnight only).
+Version 1.3.3. Interface version: 120100 (retail Midnight only).
 Saved variables: MiniRangeFaderDB (account-wide).
 
 ## What it does
@@ -39,5 +39,5 @@ Open with a slash command or Options -> AddOns -> MiniRangeFader.
 - "Frames still fully fade": the slider only takes effect when the frame's
   out-of-range state updates; moving the slider triggers a refresh of
   currently visible frames.
-- "Why can't I install it on Classic": the addon targets retail (Midnight)
+- "Why can't I install it on Classic": the addon targets retail 12.1
   clients only.
