@@ -50,8 +50,11 @@ local function UpdateAlpha(frame)
 end
 
 local function OnCufSetAlpha(frame)
-	-- ignore nameplates
-	if string.find(frame.unit, "nameplate") ~= nil then
+	local unit = frame.unit
+
+	-- ignore nameplates. Plain find, so no pattern is compiled on a path blizzard runs for
+	-- every group frame it refreshes.
+	if not unit or string.find(unit, "nameplate", 1, true) then
 		return
 	end
 
