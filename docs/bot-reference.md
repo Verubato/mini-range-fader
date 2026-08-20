@@ -1,6 +1,6 @@
 # MiniRangeFader - bot reference
 
-Version 1.3.3. Interface version: 120100 (retail Midnight only).
+Version 1.3.5. Interface version: 120100 (retail Midnight only).
 Saved variables: MiniRangeFaderDB (account-wide).
 
 ## What it does

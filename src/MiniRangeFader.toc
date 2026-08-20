@@ -3,7 +3,7 @@
 ## Notes: Customise the raid frame transparency for units out of range.
 ## Category: Mini
 ## Author: Verz
-## Version: 1.3.4
+## Version: 1.3.5
 ## SavedVariables: MiniRangeFaderDB
 ## IconTexture: Interface\AddOns\MiniRangeFader\Icon.blp
 ## X-Curse-Project-ID: 1447128
