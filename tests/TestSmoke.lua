@@ -5,18 +5,18 @@ local fw = require("TestFramework")
 local smoke = require("SmokeTest")
 local WowMock = require("WowMock")
 
+local VERTICAL_SPACING = 16
+
 ---The section rule is built by the framework and never handed back to the addon, so a test
 ---finds it the way a player sees it, by its label.
 ---@param text string
----@return boolean
-local function HasDivider(text)
+---@return table?
+local function FindDivider(text)
 	for _, frame in ipairs(WowMock.Frames) do
 		if frame.Label and frame.Label.GetText and frame.Label:GetText() == text then
-			return true
+			return frame
 		end
 	end
-
-	return false
 end
 
 ---The styled toggle keeps its label on a .Text field, so a test finds it by its caption.
@@ -30,30 +30,37 @@ local function FindCheckbox(text)
 	end
 end
 
----The alpha slider now sits below the renamed Background checkbox, not above it.
----@return boolean
-local function SliderFollowsCheckbox()
-	local checkbox = FindCheckbox("Background")
-
-	if not checkbox then
-		return false
-	end
-
+---@return table?
+local function FindSlider()
 	for _, frame in ipairs(WowMock.Frames) do
 		if frame:GetObjectType() == "Slider" then
-			local _, relativeTo = frame:GetPoint()
-			return relativeTo == checkbox
+			return frame
 		end
 	end
-
-	return false
 end
 
 smoke.Run("MiniRangeFader", {
 	extra = function(context)
 		fw.eq(context.Addon.Framework.CustomStyling, true, "custom styling on")
 		fw.eq(context.Addon.Framework.CustomStylingOverrides.Button, false, "stock buttons")
-		fw.truthy(HasDivider("SETTINGS"), "the settings section rule under the header")
-		fw.truthy(SliderFollowsCheckbox(), "the alpha slider follows the renamed Background checkbox")
+
+		local divider = FindDivider("SETTINGS")
+		fw.not_nil(divider, "the settings section rule under the header")
+
+		local checkbox = FindCheckbox("Background")
+		fw.not_nil(checkbox, "the Background checkbox")
+
+		local _, checkboxAnchor, _, checkboxX, checkboxY = checkbox:GetPoint()
+		fw.eq(checkboxAnchor, divider, "the Background checkbox anchors to the section divider")
+		fw.eq(checkboxX, 0, "the Background checkbox has no horizontal offset")
+		fw.eq(checkboxY, -VERTICAL_SPACING, "one vertical spacing between the divider and the checkbox")
+
+		local slider = FindSlider()
+		fw.not_nil(slider, "the alpha slider")
+
+		local _, sliderAnchor, _, sliderX, sliderY = slider:GetPoint()
+		fw.eq(sliderAnchor, checkbox, "the alpha slider anchors to the Background checkbox")
+		fw.eq(sliderX, 0, "the alpha slider has no horizontal offset")
+		fw.eq(sliderY, -VERTICAL_SPACING * 2, "a slider needs a double gap since its label sits above the track")
 	end,
 })

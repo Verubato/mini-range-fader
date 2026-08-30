@@ -59,7 +59,7 @@ function M:Init()
 		end,
 	})
 
-	checkbox:SetPoint("TOPLEFT", header.Anchor, "BOTTOMLEFT", 0, -verticalSpacing * 3)
+	checkbox:SetPoint("TOPLEFT", header.Anchor, "BOTTOMLEFT", 0, -verticalSpacing)
 
 	local slider = mini:Slider({
 		Parent = panel,
@@ -76,5 +76,7 @@ function M:Init()
 		end,
 	})
 
-	slider.Slider:SetPoint("TOPLEFT", checkbox, "BOTTOMLEFT", 0, -verticalSpacing)
+	-- A slider carries its label above the track, so it needs a double gap where the next
+	-- checkbox down would only need one.
+	slider.Slider:SetPoint("TOPLEFT", checkbox, "BOTTOMLEFT", 0, -verticalSpacing * 2)
 end
