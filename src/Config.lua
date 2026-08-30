@@ -37,6 +37,7 @@ function M:Init()
 		Parent = panel,
 		Description = "Customise the raid frame transparency for units out of range.",
 		Gap = 6,
+		Divider = true,
 	})
 
 	mini:RegisterSlashCommand(category, panel, {
