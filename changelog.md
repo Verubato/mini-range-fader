@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.3.6
+
+UI improvements.
+
 ## 1.3.5
 
 Reduced CPU use on the group frame updates the addon hooks, and fixed a possible error for a frame with no unit.

@@ -1,6 +1,6 @@
 # MiniRangeFader - bot reference
 
-Version 1.3.5. Interface version: 120100 (retail Midnight only).
+Version 1.3.6. Interface version: 120100 (retail Midnight only).
 Saved variables: MiniRangeFaderDB (account-wide).
 
 ## What it does
@@ -25,8 +25,8 @@ Open with a slash command or Options -> AddOns -> MiniRangeFader.
 
 | Setting | Type | Default | Range | Effect |
 |---|---|---|---|---|
+| Background | checkbox | on | - | Keeps a solid black background behind each raid frame; the background ignores the fade so faded frames stay readable. |
 | Alpha | slider | 0.55 | 0.1 - 1.0, step 0.05 | Opacity used for out-of-range units. 1.0 means no fading at all. |
-| Black Background | checkbox | on | - | Keeps a solid black background behind each raid frame; the background ignores the fade so faded frames stay readable. |
 
 ## Slash commands
 
