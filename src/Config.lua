@@ -46,6 +46,21 @@ function M:Init()
 		"/mrf",
 	})
 
+	local checkbox = mini:Checkbox({
+		Parent = panel,
+		LabelText = "Background",
+		Tooltip = "Show a black background behind each raid frame.",
+		GetValue = function()
+			return db.BlackBackground
+		end,
+		SetValue = function(value)
+			db.BlackBackground = value
+			addon:Refresh()
+		end,
+	})
+
+	checkbox:SetPoint("TOPLEFT", header.Anchor, "BOTTOMLEFT", 0, -verticalSpacing * 3)
+
 	local slider = mini:Slider({
 		Parent = panel,
 		LabelText = "Alpha",
@@ -61,20 +76,5 @@ function M:Init()
 		end,
 	})
 
-	slider.Slider:SetPoint("TOPLEFT", header.Anchor, "BOTTOMLEFT", 0, -verticalSpacing * 3)
-
-	local checkbox = mini:Checkbox({
-		Parent = panel,
-		LabelText = "Black Background",
-		Tooltip = "Show a black background behind each raid frame.",
-		GetValue = function()
-			return db.BlackBackground
-		end,
-		SetValue = function(value)
-			db.BlackBackground = value
-			addon:Refresh()
-		end,
-	})
-
-	checkbox:SetPoint("TOPLEFT", slider.Slider, "BOTTOMLEFT", 0, -verticalSpacing)
+	slider.Slider:SetPoint("TOPLEFT", checkbox, "BOTTOMLEFT", 0, -verticalSpacing)
 end
