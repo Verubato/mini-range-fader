@@ -1,4 +1,4 @@
-## Interface: 120100
+## Interface: 120100, 16001
 ## Title: MiniRangeFader
 ## Notes: Customise the raid frame transparency for units out of range.
 ## Category: Mini
